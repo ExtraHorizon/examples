@@ -1,0 +1,63 @@
+{
+  "name": "demo-actual-heartrate",
+  "description": "Demo of actual heart rate",
+  "statuses": {
+      "normal": {},
+      "critical": {}
+  },
+  "creationTransition": {
+      "toStatus": "normal",
+      "type": "manual",
+      "actions": []
+  },
+  "transitions": [
+    {
+      "name": "criticalParameter",
+      "type": "automatic",
+      "fromStatuses": ["normal"],
+      "toStatus": "critical",
+      "conditions": [
+        {
+          "type": "document", 
+          "configuration": {
+            "type": "object",
+            "properties": {
+              "heartrate": {
+                "type": "number",
+                "minimum": 200
+              }
+            }
+          }
+
+        }
+      ],
+      "actions": [{
+        "type": "task",
+        "functionName": "alert-task"
+      }]
+    }
+  ],
+  "properties": {
+      "patientName": {
+        "type": "string"
+      },
+      "patientMail": {
+        "type": "string"
+      },
+      "heartrate": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 300
+      },
+      "systolicPressure": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 300
+      },
+      "diastolicPressure": {
+        "type": "number",
+        "minimum": 0,
+        "maximum": 300
+      }
+  }
+}
