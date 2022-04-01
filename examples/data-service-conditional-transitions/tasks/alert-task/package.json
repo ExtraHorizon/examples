@@ -14,7 +14,7 @@
   },
   "scripts": {
     "start": "yarn test",
-    "build": "tsc",
+    "build": "tsc && zip -r output.zip ./build/* ./node_modules",
     "test": "yarn build && node -e 'require(\"./build/test.js\").test()'"
   }
 }

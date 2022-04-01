@@ -5,6 +5,7 @@ This example uses the following ExH services:
 * Data service 
 * Task service
 * Mail service
+* Template service
 
 ## Prerequisites
 * The `exh` CLI tool must be installed ([link](https://github.com/ExtraHorizon/exh-cli))

@@ -1,0 +1,17 @@
+{
+  "description": "Default Mail Template",
+  "schema": {
+      "type": "object",
+      "fields": {
+        "name": {
+          "type": "string"
+        },
+        "subject": {
+          "type": "string"
+        }
+      }
+  },
+  "fields": {
+    "subject": "Hi $content.name, take care of your health! "
+  }
+}

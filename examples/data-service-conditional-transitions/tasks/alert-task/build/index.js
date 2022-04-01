@@ -16,11 +16,11 @@ async function handler(task) {
     try {
         const document = await sdk.data.documents.findById(schemaId, documentId);
         await sdk.mails.send({
-            subject: `${document.data.patientName}, check je heart!`,
+            templateId: "624319b0cff47e000714b147",
             recipients: {
                 to: [document.data.patientMail],
             },
-            body: `Beste ${document.data.patientName}, chech je hartritme, we hebben rare waarden gedetecteerd!`,
+            content: { name: document.data.patientName }
         });
     }
     catch (e) {
