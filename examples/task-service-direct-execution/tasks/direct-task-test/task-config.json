@@ -1,0 +1,11 @@
+{
+    "name": "direct-task-test",
+    "description": "direct-task-test task",
+    "path": "build",
+    "entryPoint": "index.handler",
+    "runtime": "nodejs14.x",
+    "timeLimit": 30,
+    "executionOptions":{
+        "permissionMode": "public"
+    }
+}
