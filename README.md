@@ -11,6 +11,7 @@ Keep an eye on this repository as we are continuously working on adding new exam
 
 # Examples 
 * [Data Service Conditional Transitions](examples/data-service-conditional-transitions/)
+* [Task Service Direct Execution](/examples/task-service-direct-execution)
 
 ## Where to deploy?
 You don't yet have access to a dedicated ExH environment? [Reach out to us](https://www.extrahorizon.com/onboarding-extra-horizon-medical-baas-platform#1882979070) and get access to our free sandbox environment. 
