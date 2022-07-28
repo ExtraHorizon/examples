@@ -1,0 +1,47 @@
+{
+  "name": "vitals-measurement",
+  "description": "This schema stores all measurements from the home monitoring device",
+  "properties": {
+    "bodyTemperature": {
+      "type": "number",
+      "description": "Store the body temperature",
+      "minimum": 10, 
+      "maximum": 45
+    },
+    "heartrate": {
+      "type": "number",
+      "description": "A persons heart rate",
+      "minimum": 0,
+      "maximum": 300
+    },
+    "diastolicPressure":{
+      "type": "number",
+      "description": "Diastolic Blood Pressure",
+      "minimum": 0,
+      "maximum": 200
+    },
+    "systolicPressure": {
+      "type" : "number",
+      "description": "Systolic Blood Pressure",
+      "minimum": 0,
+      "maximum": 200
+    },
+    "deviceId": {
+      "type" : "string",
+      "description": "Identification of the home monitoring device",
+      "pattern": "^dev\\d{3}"
+    },
+    "comment": {
+      "type": "string",
+      "description": "Ability to add a simple comment"
+    }
+  },
+  "statuses": {
+    "created": {}
+  },
+  "transitions": [],
+  "creationTransition":{
+    "type": "manual",
+    "toStatus": "created"
+  }
+}
