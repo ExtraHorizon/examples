@@ -1,0 +1,7 @@
+{
+    "name": "ex1ReportTask",
+    "description": "ex1ReportTask task",
+    "path": "build",
+    "entryPoint": "index.handler",
+    "runtime": "nodejs14.x"
+}

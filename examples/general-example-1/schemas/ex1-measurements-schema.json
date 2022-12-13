@@ -1,0 +1,106 @@
+{
+  "name": "demo1Measurements",
+  "description": "This schema stores the measurement records",
+  "statuses": {
+      "new": {},
+      "processed": {},
+      "analysed": {},
+      "reported": {}
+  },
+  "creationTransition": {
+      "toStatus": "new",
+      "type": "manual",
+      "actions": [
+          {
+            "type": "linkCreator"
+          },
+          {
+              "type": "task",
+              "functionName": "ex1ProcessingTask"
+          }
+      ]
+  },
+  "transitions": [
+      {
+          "name": "storeAlgorithmResults",
+          "type": "manual",
+          "fromStatuses": [
+              "new"
+          ],
+          "toStatus": "processed"
+      },
+      {
+          "name": "storeAnalysis",
+          "type": "manual",
+          "fromStatuses": [
+              "processed"
+          ],
+          "toStatus": "analysed",
+          "conditions": [
+              {
+                  "type": "input",
+                  "configuration": {
+                      "type": "object",
+                      "properties": {
+                          "remarks": {
+                              "type": "string"
+                          }
+                      },
+                      "required": [
+                          "remarks"
+                      ]
+                  }
+              }
+          ]
+      },
+      {
+          "name": "generateAndReport",
+          "type": "automatic",
+          "fromStatuses": [
+              "analysed"
+          ],
+          "toStatus": "reported",
+          "actions": [
+              {
+                  "type": "task",
+                  "functionName": "ex1ReportTask"
+              }
+          ]
+      },
+      {
+          "name": "retrigger",
+          "type": "manual",
+          "fromStatuses": [
+              "reported"
+          ],
+          "toStatus": "analysed"
+      }
+  ],
+  "properties": {
+      "start": {
+          "type": "string",
+          "format": "date-time"
+      },
+      "patientId": {
+          "type": "string"
+      },
+      "remarks": {
+          "type": "string"
+      },
+      "heartRate": {
+        "type": "number"
+      },
+      "diagnosis": {
+        "type":"string",
+        "enum": ["positive","negative", "inconclusive"]
+      },
+      "measurementFileToken": {
+        "type": "string",
+        "description": "Variable to store a reference to the data file linked to the measurement"
+      },
+      "reportFileToken": {
+          "type": "string",
+          "description": "Variable to store a reference to the measurement report "
+      }
+  }
+}
