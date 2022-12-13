@@ -1,0 +1,18 @@
+{
+    "name": "ex1Report",
+    "description": "Example Report Template",
+    "schema": {
+        "type": "object",
+        "fields": {
+            "measurementFileToken": {
+                "type": "string"
+            },
+            "remarks": {
+                "type": "string"
+            }
+        }
+    },
+    "fields": {
+        "filename": "example_report"
+    }
+}
